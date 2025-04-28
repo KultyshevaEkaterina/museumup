@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/museum-flask.iml" filepath="$PROJECT_DIR$/.idea/museum-flask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/museumup.iml" filepath="$PROJECT_DIR$/.idea/museumup.iml" />
     </modules>
   </component>
 </project>
