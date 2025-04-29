@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Виртуальный музей</title>
+     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .exhibit-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .exhibits-list {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input, button {
+            padding: 8px 12px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .message {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .exhibit {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в наш виртуальный музей!</h1>
+
+    <div class="exhibit-form">
+        <h2>Добавить новый экспонат:</h2>
+        <form method="POST" action="/add">
+            <div>
+                <input type="text" name="name" placeholder="Название экспоната" required>
+            </div>
+            <div>
+                <input type="text" name="room" placeholder="Номер зала" required>
+            </div>
+            <button type="submit">Добавить экспонат</button>
+        </form>
+
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <div class="exhibits-list">
+        <h2>Наши экспонаты:</h2>
+        {% for exhibit in exhibits %}
+        <div class="exhibit">
+            <strong>{{ exhibit.name }}</strong> (Зал: {{ exhibit.room }})
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
